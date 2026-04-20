@@ -1,0 +1,46 @@
+<%- include('./partials/head.ejs') %>
+<body>
+
+    <%- include('./partials/header.ejs') %>
+
+    <h2>Welcome to our grocerory inventory</h2>
+
+        <div class="dropdown">
+            <button id="dropbtn">Click Me</button>
+            <div id="dropdown-content" class="dropdown-menu">
+                <a href="/all">All Items</a>
+                <a href="/fruits">Fruits</a>
+                <a href="/dairy">Dairy</a>
+                <a href="meat">Meat</a>
+                <a href="/snacks">Snacks</a>
+                <a href="/drinks">Drinks</a>
+                <a href="/vegatables">Vegatables</a>
+            </div>        
+        </div>
+       
+
+    
+
+    
+
+
+    <%- include('./partials/footer.ejs') %>
+    
+</body>
+<script>
+    const btn = document.getElementById('dropbtn');
+    const menu = document.getElementById('dropdown-content');
+
+    btn.addEventListener("click", () => {
+        menu.classList.toggle('show');
+    })
+
+    window.onclick = (event) => {
+        if(!event.target.matches('#dropbtn')) {
+            if(menu.classList.contains('show')){
+                menu.classList.remove('show');
+            }
+        }
+    };
+</script>
+</html>

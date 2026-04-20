@@ -1,0 +1,29 @@
+<%- include('./partials/head.ejs') %>
+<body>
+
+    <a href="/home">Go back home</a>
+
+    
+
+
+    <%- include('./partials/footer.ejs') %>
+    
+</body>
+<script>
+    const btn = document.getElementById('dropbtn');
+    const menu = document.getElementById('dropdown-content');
+
+    btn.addEventListener("click", () => {
+        menu.classList.toggle('show');
+    })
+
+    window.onclick = (event) => {
+        if(!event.target.matches('#dropbtn')) {
+            if(menu.classList.contains('show')){
+                menu.classList.remove('show');
+
+            }
+        }
+    };
+</script>
+</html>
