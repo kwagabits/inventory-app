@@ -2,6 +2,9 @@ const express = require("express");
 const path = require("node:path");
 const categoriesRoutes = require('./routes/categoriesRoutes');
 const itemsRoutes = require('./routes/itemsRoutes');
+const db = require("./database/queries");
+require('dotenv').config();
+
 
 
 const app = express();
@@ -17,12 +20,13 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-app.get('/', (req, res) => {
-    res.render('index', { title: 'Items page' });
+app.get('/', async (req, res) => {
+    const categories = await db.getAllCategories();
+    res.render('index', { title: 'Items page', categories: categories });
 });
 
 app.use('/categories', categoriesRoutes);
-// app.use('/items', itemsRoutes);
+app.use('/items', itemsRoutes);
 
 
 

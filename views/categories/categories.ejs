@@ -1,0 +1,26 @@
+<%- include('../partials/head.ejs') %>
+
+<body>
+    <%- include('../partials/header.ejs') %>
+
+    <div class="container">
+        <a href="/categories/new">Create new category</a>
+
+        <div class="content">
+            <% categories.forEach((category) => { %>
+                <a href="/categories/<%= category.id %>" class="category">
+                    <h2><%= category.category %></h2>
+                    <p><%= category.description %></p>    
+                    <a href="/categories/<%= category.id %>/edit">Edit</a>
+                    <form action="/categories/<%= category.id %>/delete" method="POST">
+                        <button type="submit" class="delete-btn" onclick="return confirm('Delete this category?')">Delete</button>
+                    </form>
+                </a>
+            <% }) %>
+        </div>        
+    </div>
+
+    <%- include('../partials/footer.ejs') %>
+    
+</body>
+</html>

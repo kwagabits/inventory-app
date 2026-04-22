@@ -1,0 +1,35 @@
+<%- include('./partials/head.ejs') %>
+
+<body>
+    <%- include('./partials/header.ejs') %>
+
+
+    <div class="container">
+        <h2><%= allItems ? "All Items" : items[0].category %> Category</h2>
+
+
+        <a href="/items/new">Create new item</a>
+            <div class="content">
+                <% items.map((item) => { %>
+                    <div class="item">    
+                        <h3><%= item.name %></h3>
+                        <p>Description: <%= item.description %></p>
+                        <p>Price: <%= item.price  %></p>
+                        <p>Categories: <%= item.category  %></p>
+                        <a href="/items/<%= item.id %>">Details</a>
+                        <a href="/items/<%= item.id %>/edit">Edit</a>
+                        <form action="/items/<%= item.id %>/delete" method="POST">
+                            <button type="submit" class="delete-btn" onclick="return confirm('Delete this category?')">Delete</button>
+                        </form>
+                        
+                    </div>    
+                <% }) %> 
+            </div>    
+    </div>
+
+
+
+    <%- include('./partials/footer.ejs') %>
+    
+</body>
+</html>

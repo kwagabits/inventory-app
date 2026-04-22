@@ -1,29 +1,25 @@
 <%- include('./partials/head.ejs') %>
 <body>
 
-    <a href="/home">Go back home</a>
+    <a href="/">Go back home</a>
+    <div class="content">
+            <div class="detail-item">   
+                <% items.forEach((item) => { %>
+                    <h3><%= item.name %></h3>
+                    <p><strong>Description:</strong> <%= item.description %></p>
+                    <p><strong>Price:</strong> <%= item.price  %></p>
+                    <p><strong>Quantity:</strong> <%= item.quantity  %></p>
+                    <p><strong>Expiration Date:</strong>  <%= item.expiration_date.toDateString() %></p> 
+                    <p><strong>Category:</strong> <%= item.category  %></p>
+                    <p><strong>Last updated at:</strong> <%= item.updated_at.toDateString() %></p> 
+                    <a href="/items/<%= item.id %>/edit">Edit</a>
+                <% }) %>
 
+            </div>    
     
-
+    </div>
 
     <%- include('./partials/footer.ejs') %>
     
 </body>
-<script>
-    const btn = document.getElementById('dropbtn');
-    const menu = document.getElementById('dropdown-content');
-
-    btn.addEventListener("click", () => {
-        menu.classList.toggle('show');
-    })
-
-    window.onclick = (event) => {
-        if(!event.target.matches('#dropbtn')) {
-            if(menu.classList.contains('show')){
-                menu.classList.remove('show');
-
-            }
-        }
-    };
-</script>
 </html>
