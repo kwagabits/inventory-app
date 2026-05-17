@@ -1,8 +1,7 @@
 <%- include('./partials/head.ejs') %>
 <body>
 
-    <a href="/">Go back home</a>
-    <div class="content">
+    <a class="go-home" href="/">Go Back Home</a>
             <div class="detail-item">   
                 <% items.forEach((item) => { %>
                     <h3><%= item.name %></h3>
@@ -14,8 +13,6 @@
                     <p><strong>Last updated at:</strong> <%= item.updated_at.toDateString() %></p> 
                     <a href="/items/<%= item.id %>/edit">Edit</a>
                 <% }) %>
-
-            </div>    
     
     </div>
 

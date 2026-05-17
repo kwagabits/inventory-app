@@ -3,23 +3,26 @@
 <body>
     <%- include('./partials/header.ejs') %>
 
-
     <div class="container">
         <h2><%= allItems ? "All Items" : items[0].category %> Category</h2>
 
 
-        <a href="/items/new">Create new item</a>
+        <a class="create-item" href="/items/new">Create new item</a>
             <div class="content">
                 <% items.map((item) => { %>
                     <div class="item">    
                         <h3><%= item.name %></h3>
-                        <p>Description: <%= item.description %></p>
-                        <p>Price: <%= item.price  %></p>
-                        <p>Categories: <%= item.category  %></p>
-                        <a href="/items/<%= item.id %>">Details</a>
-                        <a href="/items/<%= item.id %>/edit">Edit</a>
+                        <p><strong>Description:</strong> <%= item.description %></p>
+                        <p><strong>Price:</strong> <%= item.price  %></p>
+                        <p><strong>Categories:</strong> <%= item.category  %></p>
+
+                        <div class="edit-details">
+                            <a href="/items/<%= item.id %>">Details</a>
+                            <a href="/items/<%= item.id %>/edit">Edit</a> 
+                        </div>
+
                         <form action="/items/<%= item.id %>/delete" method="POST">
-                            <button type="submit" class="delete-btn" onclick="return confirm('Delete this category?')">Delete</button>
+                            <button type="submit" class="delete-btn" onclick="return confirm('Delete this category?')"><strong>X</strong></button>
                         </form>
                         
                     </div>    

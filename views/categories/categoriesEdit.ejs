@@ -4,20 +4,23 @@
     <!-- <%- include('../partials/header.ejs') %> -->
 
     <div class="container">
-        <a href="/categories">Go to categories</a>
+        <a class="go-to-categories" href="/categories">Go to categories</a>
 
         <%- include("../partials/errors.ejs") %>
 
 
-        <form action="/categories/<%= category.id %>/update" method="POST">
-            <label for="category">Name of Category:</label>
-            <input type="text" id="category" name="category" value="<%= oldInput ? oldInput.category : category.category %>" required>
+        <div class="edit-category">
+            <form action="/categories/<%= category.id %>/update" method="POST">
+                <label for="category">Name of Category:</label>
+                <input type="text" id="category" name="category" value="<%= oldInput ? oldInput.category : category.category %>" required>
 
-            <label for="description">Description:</label>
-            <input type="text" id="description" name="description" value="<%= oldInput ? oldInput.description : category.description %>">
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" value="<%= oldInput ? oldInput.description : category.description %>">
 
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>        
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>                 
+        </div>
+   
     </div>
 
 

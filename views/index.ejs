@@ -10,9 +10,9 @@
                 <div class="dropdown">
                     <button id="dropbtn">Start</button>
                     <div id="dropdown-content" class="dropdown-menu">
-                        <a href="/items/all">All Items</a>
+                        <a class="dropdown-items" href="/items/all">All Items</a>
                         <% categories.map((category) => { %>
-                            <a href="/categories/<%= category.id %>"><%= category.category %></a>
+                            <a class="dropdown-items" href="/categories/<%= category.id %>"><%= category.category %></a>
                         <% }) %>
                     </div>        
                 </div>

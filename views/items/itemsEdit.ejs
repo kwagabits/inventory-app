@@ -1,41 +1,41 @@
 <%- include('../partials/head.ejs') %>
 <body>
 
-    <!-- <%- include('../partials/header.ejs') %> -->
-
     <div class="container">
-        <a href="/items/all">Go to items</a>
+        <a class="go-to-items" href="/items/all">Go to items</a>
+        <%- include("../partials/errors.ejs") %>
 
+        <h2>Edit Item</h2>
+        
+        <div class="create-edit content">
+            <form method="post" action="/items/<%= item.id %>/update">
+                <label for="name">Name of item:</label>
+                <input type="text" id="name" name="name" value="<%= oldInput ? oldInput.name : item.name %>"  required>
 
-        <form method="post" action="/items/<%= item.id %>/update">
-            <label for="name">Name of item:</label>
-            <input type="text" id="name" name="name" value="<%= oldInput ? oldInput.name : item.name %>"  required>
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" value="<%= oldInput ? oldInput.description : item.description %>" required>
 
-            <label for="description">Description:</label>
-            <input type="text" id="description" name="description" value="<%= oldInput ? oldInput.description : item.description %>" required>
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" value="<%= oldInput ? oldInput.price : item.price %>" required>
 
-            <label for="price">Price:</label>
-            <input type="number" id="price" name="price" value="<%= oldInput ? oldInput.price : item.price %>" required>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" value="<%= oldInput ? oldInput.quantity : item.quantity %>" required>
 
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" value="<%= oldInput ? oldInput.quantity : item.quantity %>" required>
+                <label for="expiration_date">Expiration Date</label>
+                <input type="datetime" id="expiration_date" name="expiration_date" value="<%= oldInput ? oldInput.expiration_date : item.expiration_date %>" required>
 
-            <label for="expiration_date">Expiration Date</label>
-            <input type="datetime" id="expiration_date" name="expiration_date" value="<%= oldInput ? oldInput.expiration_date : item.expiration_date %>" required>
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <% categories.forEach((category) => { %>
+                        <option value="<%= category.id %>"><%= category.category %></option>
+                    <% }) %>
+                </select>
 
-            <label for="category">Category:</label>
-            <select id="category" name="category" required>
-                <% categories.forEach((category) => { %>
-                    <option value="<%= category.id %>"><%= category.category %></option>
-                <% }) %>
-            </select>
-
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>       
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>             
+        </div>
+     
     </div>
-    <a href="/items/all">Go to items</a>
-
-    <%- include("../partials/errors.ejs") %>
 
 
 

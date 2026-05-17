@@ -5,5 +5,16 @@
     "express": "^5.2.1",
     "express-validator": "^7.3.2",
     "pg": "^8.20.0"
-  }
+  },
+  "name": "inventory_app",
+  "version": "1.0.0",
+  "description": "An food inventory app",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC"
 }

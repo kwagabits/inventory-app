@@ -1,16 +1,15 @@
 <%- include('../partials/head.ejs') %>
 <body>
 
-<!-- <%- include('../partials/header.ejs') %> -->
-
 
     <div class="container">
-        <a href="/items/all">Go to items</a>
+        <a class="go-to-items" href="/items/all">Go To Items</a>
         <%- include("../partials/errors.ejs") %>
 
-        <h1>Create New Items</h1>
+        <h2>Create New Item</h2>
 
-        <form method="post" action="/items/new">
+        <div class="create-item content">
+            <form method="post" action="/items/new">
             <label for="name">Name of item:</label>
             <input type="text" id="name" name="name" required>
 
@@ -34,7 +33,9 @@
             </select>
 
             <button type="submit" class="submit-btn">Submit</button>
-        </form>       
+            </form> 
+        </div>
+      
     </div>
 
 

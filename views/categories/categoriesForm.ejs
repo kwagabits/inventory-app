@@ -1,25 +1,23 @@
 <%- include('../partials/head.ejs') %>
 <body>
 
-<!-- <%- include('../partials/header.ejs') %> -->
-
     <div class="container">
-        <a href="/categories">Go to categories</a>
+        <a class="go-to-categories" href="/categories">Go To Categories</a>
         <%- include("../partials/errors.ejs") %>
 
-        <h1>Create New Category</h1>
-
-        <form method="post" action="/categories/new">
+        <h2>Create New Category</h2>
+        <div class="create-category content">
+            <form method="post" action="/categories/new">
             <label for="category">Name of category:</label>
             <input type="text" id="category" name="category" required>
 
-            <label for="description">Description</label>
+            <label for="description">Description:</label>
             <input type="text" id="description" name="description" required>
             <button type="submit" class="submit-btn">Submit</button>
-        </form>        
+        </form>   
+        </div>
+     
     </div>
-
-
 
 
 <%- include('../partials/footer.ejs') %>
