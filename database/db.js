@@ -7,6 +7,9 @@ const pool = new Pool({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
+    ssl: {
+        rejectUnauthorized: false,
+    },
     max: 10,                       // Max connections in pool
     idleTimeoutMillis: 30000,      // Close idle connections after 30s
 });
